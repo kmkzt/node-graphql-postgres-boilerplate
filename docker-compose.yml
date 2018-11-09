@@ -1,18 +1,5 @@
 version: '3'
 services:
-  server: 
-    image: node:10.12.0-alpine
-    container_name: server
-    hostname: server
-    restart: always
-    ports: 
-      - "8080:8080"
-    volumes:
-      - "./server:/src"
-    working_dir: /src/
-    depends_on: 
-      - db
-    command: npm i && npm run start
   db:
     image: postgres:11.0-alpine
     container_name: db
