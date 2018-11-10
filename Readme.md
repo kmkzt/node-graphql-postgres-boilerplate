@@ -1,11 +1,30 @@
-## DB settings
+## command
+- start
+```
+make setup
+```
 
-- connect database
+- login console
 ```
-docker exec -it db bash
+make console
 ```
 
-- database login
+- reset
 ```
-psql -d database -U username
+make reset
+```
+
+## try graphql
+
+```
+{
+  person(id:1){
+    firstname,
+    lastname
+    emails {
+      id
+      email
+    }
+  }
+}
 ```

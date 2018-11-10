@@ -6,9 +6,12 @@ services:
     hostname: db
     restart: always
     ports:
-      - "5432:5432"
+      - 5432:5432
+    tty: true
+    user: root
     volumes: 
-      - "./dbdata:/var/lib/postgresql/data"
+      - ./init:/docker-entrypoint-initdb.d # 初期データ
+      - ./dbdata:/var/lib/postgresql/data
     # env_file: .env
     environment:
       POSTGRES_PASSWORD: password
